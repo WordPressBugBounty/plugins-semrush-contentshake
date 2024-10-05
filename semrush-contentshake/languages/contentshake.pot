@@ -1,0 +1,60 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Semrush ContentShake\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-04-03 13:38+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: \n"
+"Language: \n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.6.4; wp-6.1.1\n"
+"X-Domain: contentshake"
+
+#: pages/settings.php:109
+msgid "Connect ContentShake"
+msgstr ""
+
+#: pages/settings.php:101
+msgid "Connected to ContentShake"
+msgstr ""
+
+#: pages/settings.php:113
+msgid "Disconnect ContentShake"
+msgstr ""
+
+#: pages/settings.php:103
+msgid "Don't have an account yet?"
+msgstr ""
+
+#: pages/settings.php:97
+msgid "Expand your brand with"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "https://www.semrush.com/"
+msgstr ""
+
+#: pages/settings.php:128
+msgid "Redirecting to"
+msgstr ""
+
+#. Author of the plugin
+msgid "Semrush"
+msgstr ""
+
+#. Name of the plugin
+msgid "Semrush ContentShake"
+msgstr ""
+
+#. Description of the plugin
+msgid "Semrush ContentShake WordPress plugin"
+msgstr ""
+
+#: pages/settings.php:103
+msgid "Sign up"
+msgstr ""
