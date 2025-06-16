@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Semrush ContentShake\n"
+"Project-Id-Version: Semrush Content Toolkit\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-04-03 13:38+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
@@ -16,15 +16,15 @@ msgstr ""
 "X-Domain: contentshake"
 
 #: pages/settings.php:109
-msgid "Connect ContentShake"
+msgid "Connect Content Toolkit"
 msgstr ""
 
 #: pages/settings.php:101
-msgid "Connected to ContentShake"
+msgid "Connected to Content Toolkit"
 msgstr ""
 
 #: pages/settings.php:113
-msgid "Disconnect ContentShake"
+msgid "Disconnect Content Toolkit"
 msgstr ""
 
 #: pages/settings.php:103
@@ -48,11 +48,11 @@ msgid "Semrush"
 msgstr ""
 
 #. Name of the plugin
-msgid "Semrush ContentShake"
+msgid "Semrush Content Toolkit"
 msgstr ""
 
 #. Description of the plugin
-msgid "Semrush ContentShake WordPress plugin"
+msgid "Semrush Content Toolkit WordPress plugin"
 msgstr ""
 
 #: pages/settings.php:103

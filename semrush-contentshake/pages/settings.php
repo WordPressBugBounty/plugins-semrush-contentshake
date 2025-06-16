@@ -93,12 +93,12 @@ img {
     <div style="width: 100%; overflow:auto;">
         <div style="float:left">
     
-            <img alt="ContentShake" src="<?php echo esc_attr(plugin_dir_url(__DIR__) . '/images/logo.png'); ?>" srcset="<?php echo esc_attr(plugin_dir_url(__DIR__) . '/images/logo@2x.png'); ?> 2x, <?php echo esc_attr(plugin_dir_url(__DIR__) . '/images/logo@3x.png'); ?> 3x" />
+            <img alt="Content Toolkit" src="<?php echo esc_attr(plugin_dir_url(__DIR__) . '/images/logo.png'); ?>" srcset="<?php echo esc_attr(plugin_dir_url(__DIR__) . '/images/logo@2x.png'); ?> 2x, <?php echo esc_attr(plugin_dir_url(__DIR__) . '/images/logo@3x.png'); ?> 3x" />
             <div style="color: #FFFFFF; margin-top: 25pt; font-size: 38pt; font-family: Verdana, Geneva, Tahoma, sans-serif; font-style: normal;"><?php _e( 'Expand your brand with', 'contentshake' ); ?></div>
-            <div style="color: #FFE84D; font-size: 38pt; font-family: Verdana, Geneva, Tahoma, sans-serif; font-style: normal;">ContentShake</div>
+            <div style="color: #FFE84D; font-size: 38pt; font-family: Verdana, Geneva, Tahoma, sans-serif; font-style: normal;">Content Toolkit</div>
 
             <?php if ( $connected ): ?>
-                <div style="color: #FFFFFF; margin-top: 25pt; font-size: 12pt; font-family: Verdana, Geneva, Tahoma, sans-serif; font-style: normal;"><?php _e( 'Connected to ContentShake', 'contentshake' ); ?></div>
+                <div style="color: #FFFFFF; margin-top: 25pt; font-size: 12pt; font-family: Verdana, Geneva, Tahoma, sans-serif; font-style: normal;"><?php _e( 'Connected to Content Toolkit', 'contentshake' ); ?></div>
             <?php else: ?>
                 <div style="color: #FFFFFF; margin-top: 25pt; font-size: 12pt; font-family: Verdana, Geneva, Tahoma, sans-serif; font-style: normal;"><?php _e( 'Don\'t have an account yet?', 'contentshake' ); ?> <a href="https://www.semrush.com/signup/" style="color: #FFFFFF; text-decoration: underline;"><?php _e( 'Sign up', 'contentshake' ); ?></a></div>
             <?php endif; ?>
@@ -106,11 +106,11 @@ img {
             <form action="" method="post">
                 <?php if ( ! $connected ) : ?>
                     <input type="hidden" name="connect" value="true">
-                    <input type="submit" name="submit" id="submit" class="btn" value="<?php _e( 'Connect ContentShake', 'contentshake' ); ?>">
+                    <input type="submit" name="submit" id="submit" class="btn" value="<?php _e( 'Connect Content Toolkit', 'contentshake' ); ?>">
                 <?php else: ?>
                     <input type="hidden" name="token" id="semrush_contentshake_api_key" value="<?php echo esc_attr($user_token); ?>">
                     <input type="hidden" name="disconnect" value="true">
-                    <input type="submit" name="submit" id="submit" class="btn" value="<?php echo esc_attr(__('Disconnect ContentShake', 'contentshake')); ?>">
+                    <input type="submit" name="submit" id="submit" class="btn" value="<?php echo esc_attr(__('Disconnect Content Toolkit', 'contentshake')); ?>">
                 <?php endif; ?>
             </form>
 

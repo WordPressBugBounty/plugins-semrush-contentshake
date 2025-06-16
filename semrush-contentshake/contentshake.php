@@ -1,9 +1,9 @@
 <?php
 
 /**
- * Plugin Name: Semrush ContentShake
- * Description: Semrush ContentShake WordPress plugin
- * Version: 1.1.30
+ * Plugin Name: Semrush Content Toolkit
+ * Description: Semrush Content Toolkit WordPress plugin
+ * Version: 1.1.31
  * Author: Semrush
  * Author URI: https://www.semrush.com/
  * License: GPLv3
