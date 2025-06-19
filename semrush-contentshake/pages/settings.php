@@ -37,7 +37,7 @@ $redirect_url = sprintf('%s?domain=%s&user=%s&token=%s', CONTENTSHAKE_AUTH_URL, 
 <style>
 
 body {
-    background: #008275;
+    background: #6C31C9;
     line-height: 4.0em;
 }
 

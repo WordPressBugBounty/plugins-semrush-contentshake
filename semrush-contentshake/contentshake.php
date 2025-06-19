@@ -3,7 +3,7 @@
 /**
  * Plugin Name: Semrush Content Toolkit
  * Description: Semrush Content Toolkit WordPress plugin
- * Version: 1.1.31
+ * Version: 1.1.32
  * Author: Semrush
  * Author URI: https://www.semrush.com/
  * License: GPLv3
@@ -16,7 +16,7 @@ defined( 'ABSPATH' ) || die( "Can't access directly" );
 
 const CONTENTSHAKE_API_KEY_OPTION           = 'semrush_contentshake_api_key';
 const CONTENTSHAKE_API_KEY_ACCEPTING_OPTION = 'semrush_contentshake_api_key_accepting';
-const CONTENTSHAKE_AUTH_URL                 = 'https://www.semrush.com/app/contentshake/integration/wp';
+const CONTENTSHAKE_AUTH_URL                 = 'https://www.semrush.com/content/integration/wp';
 const CONTENTSHAKE_NAMESPACE                = 'contentshake/v1';
 
 /**
@@ -236,7 +236,7 @@ class WP_Semrush_ContentShake {
      * Add settings page
      */
     public function add_settings_page() {
-        add_options_page( 'Semrush ContentShake Settings', 'ContentShake', 'manage_options', 'contentshake', array( $this, 'create_settings_page' ) );
+        add_options_page( 'Semrush Content Toolkit Settings', 'Content Toolkit', 'manage_options', 'contentshake', array( $this, 'create_settings_page' ) );
     }
 
     /**
