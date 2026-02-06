@@ -1,5 +1,11 @@
 <?php
 
+if ( $_SERVER['REQUEST_METHOD'] === 'POST' ) {
+    if ( ! isset( $_POST['_wpnonce'] ) || ! wp_verify_nonce( $_POST['_wpnonce'], 'contentshake_settings' ) ) {
+        wp_die( __( 'Security check failed', 'contentshake' ) );
+    }
+}
+
 $domain       = home_url();
 $current_user = wp_get_current_user();
 $user_email   = $current_user->user_email;
@@ -104,6 +110,7 @@ img {
             <?php endif; ?>
 
             <form action="" method="post">
+                <?php wp_nonce_field('contentshake_settings'); ?>
                 <?php if ( ! $connected ) : ?>
                     <input type="hidden" name="connect" value="true">
                     <input type="submit" name="submit" id="submit" class="btn" value="<?php _e( 'Connect Content Toolkit', 'contentshake' ); ?>">

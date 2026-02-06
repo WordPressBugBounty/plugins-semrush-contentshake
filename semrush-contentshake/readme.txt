@@ -3,7 +3,7 @@ Contributors: Semrush
 Tags: ai, seo, content marketing, semrush
 Requires at least: 5.0
 Tested up to: 6.8
-Stable tag: 1.1.32
+Stable tag: 1.1.33
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.txt
 

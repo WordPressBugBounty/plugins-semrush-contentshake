@@ -3,7 +3,7 @@
 /**
  * Plugin Name: Semrush Content Toolkit
  * Description: Semrush Content Toolkit WordPress plugin
- * Version: 1.1.32
+ * Version: 1.1.33
  * Author: Semrush
  * Author URI: https://www.semrush.com/
  * License: GPLv3
