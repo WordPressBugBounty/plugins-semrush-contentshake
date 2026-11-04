@@ -3,7 +3,7 @@ Contributors: Semrush
 Tags: ai, seo, content marketing, semrush
 Requires at least: 5.0
 Tested up to: 6.8
-Stable tag: 1.1.34
+Stable tag: 1.2.0
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.txt
 
@@ -36,9 +36,9 @@ To install the plugin, check this quick guide or follow the steps below:
 3. Find “Plugins” in the main menu, and click on “Add New”
 4. Find and click “Upload Plugin” at the top of the page and select the .zip file.
 
-Once the plugin has been installed, go to “Settings”, find “Semrush Content Toolkit” and click the “Connect” button.
+Once the plugin has been installed, go to “Settings”, find “Semrush Content Toolkit” and copy the connection token.
 
-Finally, log in to the Content Toolkit and allow the WordPress connection.
+Finally, log in to the Content Toolkit and paste the token to connect your WordPress site.
 
 To use WordPress integration once you have your article ready, click the “Share” button and choose the WordPress option.
 

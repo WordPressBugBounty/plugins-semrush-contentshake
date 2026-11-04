@@ -1,53 +1,29 @@
 <?php
 
-if ( $_SERVER['REQUEST_METHOD'] === 'POST' ) {
-    if ( ! isset( $_POST['_wpnonce'] ) || ! wp_verify_nonce( $_POST['_wpnonce'], 'contentshake_settings' ) ) {
-        wp_die( __( 'Security check failed', 'contentshake' ) );
-    }
-}
-
-$domain       = home_url();
 $current_user = wp_get_current_user();
 $user_email   = $current_user->user_email;
 $tokens       = get_option( CONTENTSHAKE_API_KEY_OPTION, array() );
-$user_token   = '';
-$connected    = false;
 
 if ( array_key_exists( $user_email, $tokens ) ) {
-    $connected = true;
+    $user_token = $tokens[$user_email];
 } else {
-    $acception_tokens = get_option( CONTENTSHAKE_API_KEY_ACCEPTING_OPTION, array() );
-    if ( ! array_key_exists( $user_email, $acception_tokens ) ) {
+    $accepting = get_option( CONTENTSHAKE_API_KEY_ACCEPTING_OPTION, array() );
+    if ( ! array_key_exists( $user_email, $accepting ) ) {
         $user_token = bin2hex( openssl_random_pseudo_bytes( 16 ) );
-        $tokens[$user_email] = $user_token;
-        update_option( CONTENTSHAKE_API_KEY_ACCEPTING_OPTION, $tokens );
+        $accepting[$user_email] = $user_token;
+        update_option( CONTENTSHAKE_API_KEY_ACCEPTING_OPTION, $accepting );
     } else {
-        $user_token = $acception_tokens[$user_email];
-        $tokens[$user_email] = $user_token;
+        $user_token = $accepting[$user_email];
     }
 }
-
-if ( isset($_POST['disconnect']) && isset($_POST['token']) ) {
-    if ( array_key_exists( $user_email, $tokens ) ) {
-        unset($tokens[$user_email]);
-        update_option(CONTENTSHAKE_API_KEY_OPTION, $tokens);
-    }
-    $user_token = '';
-    $connected  = false;
-}
-
-$redirect_url = sprintf('%s?domain=%s&user=%s&token=%s', CONTENTSHAKE_AUTH_URL, $domain, $user_email, $user_token);
 
 ?>
 
 <style>
 
 body {
-    line-height: 4.0em;
-}
-
-body {
     width: 100%;
+    line-height: 1.5em;
 }
 
 #wpwrap {
@@ -70,7 +46,7 @@ body {
 }
 
 .cs-settings__title {
-    margin-top: 25pt;
+    margin-top: 24px;
     font-size: 40px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-style: normal;
@@ -79,32 +55,37 @@ body {
     color: #000000;
 }
 
-.cs-settings__title--accent {
-    margin-top: 0;
-}
-
 .cs-settings__text {
-    margin-top: 25pt;
-    font-size: 12pt;
+    margin-top: 30px;
+    font-size: 16px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-style: normal;
     color: #000000;
 }
 
-.cs-settings__link {
-    color: #000000;
-    text-decoration: underline;
+.cs-settings__token {
+    margin-top: 30px;
+    display: flex;
+    gap: 12px;
+}
+
+.cs-settings .cs-settings__input {
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-family: monospace;
+    font-size: 16px;
 }
 
 .cs-settings__btn {
-    margin-top: 25pt;
-    padding: 16px 28px;
+    padding: 0 28px;
     border-radius: 6px;
     border-width: 0px;
     color: #FFFFFF;
     background-color: #A261FD;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-style: normal;
+    font-size: 16px;
+    line-height: 1;
+    cursor: pointer;
 }
 
 .cs-settings__btn:hover {
@@ -149,27 +130,19 @@ body {
         <div class="cs-settings__col">
 
             <img alt="Content Toolkit" src="<?php echo esc_attr(plugin_dir_url(__DIR__) . '/images/logo.png'); ?>" srcset="<?php echo esc_attr(plugin_dir_url(__DIR__) . '/images/logo@2x.png'); ?> 2x, <?php echo esc_attr(plugin_dir_url(__DIR__) . '/images/logo@3x.png'); ?> 3x" />
-            <div class="cs-settings__title"><?php _e( 'Expand your brand with', 'contentshake' ); ?></div>
-            <div class="cs-settings__title cs-settings__title--accent">Content Toolkit</div>
-
-            <?php if ( $connected ): ?>
-                <div class="cs-settings__text"><?php _e( 'Connected to Content Toolkit', 'contentshake' ); ?></div>
-            <?php else: ?>
-                <div class="cs-settings__text"><?php _e( 'Don\'t have an account yet?', 'contentshake' ); ?> <a href="https://www.semrush.com/signup/" class="cs-settings__link"><?php _e( 'Sign up', 'contentshake' ); ?></a></div>
-            <?php endif; ?>
-
-            <form action="" method="post">
-                <?php wp_nonce_field('contentshake_settings'); ?>
-                <?php if ( ! $connected ) : ?>
-                    <input type="hidden" name="connect" value="true">
-                    <input type="submit" name="submit" id="submit" class="cs-settings__btn" value="<?php _e( 'Connect Content Toolkit', 'contentshake' ); ?>">
-                <?php else: ?>
-                    <input type="hidden" name="token" id="semrush_contentshake_api_key" value="<?php echo esc_attr($user_token); ?>">
-                    <input type="hidden" name="disconnect" value="true">
-                    <input type="submit" name="submit" id="submit" class="cs-settings__btn" value="<?php echo esc_attr(__('Disconnect Content Toolkit', 'contentshake')); ?>">
-                <?php endif; ?>
-            </form>
-
+            <div class="cs-settings__title">
+                <?php _e( 'Expand your brand with', 'contentshake' ); ?>
+                <br>
+                Content Toolkit
+            </div>
+            <div class="cs-settings__text"><label for="<?php echo esc_attr(CONTENTSHAKE_TOKEN_INPUT_ID); ?>"><?php /* translators: %s: link to semrush.com */ printf( __( 'Copy this token and paste into connection widget on %s.', 'contentshake' ), '<a href="https://www.semrush.com/content" target="_blank" rel="noopener">semrush.com</a>' ); ?></label></div>
+            <div class="cs-settings__token">
+                <input type="text" id="<?php echo esc_attr(CONTENTSHAKE_TOKEN_INPUT_ID); ?>" class="cs-settings__input" size="<?php echo esc_attr(strlen($user_token)); ?>" value="<?php echo esc_attr($user_token); ?>" readonly onclick="this.select()">
+                <button type="button" id="<?php echo esc_attr(CONTENTSHAKE_COPY_BUTTON_ID); ?>" class="cs-settings__btn" data-copied="<?php echo esc_attr(__('Copied', 'contentshake')); ?>" data-failed="<?php echo esc_attr(__('Press Ctrl/Cmd+C', 'contentshake')); ?>"><?php _e( 'Copy', 'contentshake' ); ?></button>
+            </div>
+            <div class="cs-settings__text">
+                <?php /* translators: %s: link to KB article */ printf( __( '%s about using this plugin.', 'contentshake' ), '<a href="https://www.semrush.com/kb/1565-how-to-use-the-content-toolkit-plugin-on-wordpress" target="_blank" rel="noopener">' . __( 'Learn more', 'contentshake' ) . '</a>' ); ?>
+            </div>
         </div>
         <div class="cs-settings__col">
 
@@ -181,13 +154,38 @@ body {
     </div>
 </div>
 
-<?php if (isset($_POST['connect'])) : ?>
-    <div class="cs-settings__padding">
-        <span class="cs-settings__text"><?php _e('Redirecting to', 'contentshake'); ?> <a href="<?php echo esc_attr($redirect_url); ?>" class="cs-settings__link">Semrush</a>...</span>
-    </div>
-    <script>
-        setTimeout(function() {
-            window.location = '<?php echo esc_attr(CONTENTSHAKE_AUTH_URL) ?>?domain=<?php echo esc_attr($domain) ?>&user=<?php echo esc_attr($user_email) ?>&token=<?php echo esc_attr($user_token) ?>';
-        }, 2000);
-    </script>
-<?php endif; ?>
+<script>
+    (function () {
+        var input  = document.getElementById('<?php echo esc_js(CONTENTSHAKE_TOKEN_INPUT_ID); ?>');
+        var button = document.getElementById('<?php echo esc_js(CONTENTSHAKE_COPY_BUTTON_ID); ?>');
+        var label  = button.textContent;
+
+        // On failure the token stays selected, so the user can copy it by hand.
+        function flash(copied) {
+            button.textContent = copied ? button.dataset.copied : button.dataset.failed;
+            setTimeout(function () {
+                button.textContent = label;
+            }, 2000);
+        }
+
+        // Copies the selected token; also the fallback when the Clipboard API refuses
+        // (permissions, iframe policy).
+        function copySelection() {
+            flash(document.execCommand('copy'));
+        }
+
+        button.addEventListener('click', function () {
+            input.focus();
+            input.select();
+
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(input.value).then(
+                    function () { flash(true); },
+                    copySelection
+                );
+            } else {
+                copySelection();
+            }
+        });
+    })();
+</script>

@@ -1,60 +1,68 @@
+# Copyright (C) 2026 Semrush
+# This file is distributed under the GPLv3.
 msgid ""
 msgstr ""
-"Project-Id-Version: Semrush Content Toolkit\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-03 13:38+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Project-Id-Version: Semrush Content Toolkit 0.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/semrush-contentshake\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: \n"
-"Language: \n"
-"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Loco https://localise.biz/\n"
-"X-Loco-Version: 2.6.4; wp-6.1.1\n"
-"X-Domain: contentshake"
+"POT-Creation-Date: 2026-10-21T06:56:24+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.12.0\n"
+"X-Domain: contentshake\n"
 
-#: pages/settings.php:109
-msgid "Connect Content Toolkit"
-msgstr ""
-
-#: pages/settings.php:101
-msgid "Connected to Content Toolkit"
-msgstr ""
-
-#: pages/settings.php:113
-msgid "Disconnect Content Toolkit"
-msgstr ""
-
-#: pages/settings.php:103
-msgid "Don't have an account yet?"
-msgstr ""
-
-#: pages/settings.php:97
-msgid "Expand your brand with"
-msgstr ""
-
-#. Author URI of the plugin
-msgid "https://www.semrush.com/"
-msgstr ""
-
-#: pages/settings.php:128
-msgid "Redirecting to"
-msgstr ""
-
-#. Author of the plugin
-msgid "Semrush"
-msgstr ""
-
-#. Name of the plugin
+#. Plugin Name of the plugin
+#: contentshake.php
 msgid "Semrush Content Toolkit"
 msgstr ""
 
 #. Description of the plugin
+#: contentshake.php
 msgid "Semrush Content Toolkit WordPress plugin"
 msgstr ""
 
-#: pages/settings.php:103
-msgid "Sign up"
+#. Author of the plugin
+#: contentshake.php
+msgid "Semrush"
+msgstr ""
+
+#. Author URI of the plugin
+#: contentshake.php
+msgid "https://www.semrush.com/"
+msgstr ""
+
+#: pages/settings.php:141
+msgid "Expand your brand with"
+msgstr ""
+
+#. translators: %s: link to semrush.com
+#: pages/settings.php:143
+#, php-format
+msgid "Copy this token and paste into connection widget on %s."
+msgstr ""
+
+#: pages/settings.php:146
+msgid "Copied"
+msgstr ""
+
+#: pages/settings.php:146
+msgid "Press Ctrl/Cmd+C"
+msgstr ""
+
+#: pages/settings.php:146
+msgid "Copy"
+msgstr ""
+
+#. translators: %s: link to KB article
+#: pages/settings.php:149
+#, php-format
+msgid "%s about using this plugin."
+msgstr ""
+
+#. translators: %s: link to KB article
+#: pages/settings.php:149
+msgid "Learn more"
 msgstr ""
