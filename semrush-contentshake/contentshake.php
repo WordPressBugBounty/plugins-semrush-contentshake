@@ -3,7 +3,9 @@
 /**
  * Plugin Name: Semrush Content Toolkit
  * Description: Semrush Content Toolkit WordPress plugin
- * Version: 1.2.0
+ * Version: 1.2.1
+ * Requires at least: 6.5
+ * Requires PHP: 7.4
  * Author: Semrush
  * Author URI: https://www.semrush.com/
  * License: GPLv3
